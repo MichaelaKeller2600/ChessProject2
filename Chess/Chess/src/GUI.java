@@ -1,0 +1,84 @@
+import java.awt.*;
+import java.util.ArrayList;
+
+import javax.swing.*;
+
+public class GUI extends JFrame {
+	JFrame frame;
+	private final int ROWS = 8;
+	private final int COLS = 8;
+	private final int y;
+	private final int x;
+
+	public GUI(int LENGTH, int WIDTH) {// creates default window
+		frame = new JFrame();
+
+		this.y = LENGTH;
+		this.x = WIDTH;
+
+		createStructure();
+	}
+
+	public void createStructure() {
+		frame.setTitle("Really, Fun Chess!©");
+		frame.setSize(x, y);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+
+		Draw draw = new Draw();// create draw object to handle animation
+		frame.add(draw);
+
+		// if(x==1800 && y == 1800)//adjust frame size to fit
+		frame.setSize(x + 35, y + 90);
+
+	}
+
+	public class Draw extends JComponent {// handles animation
+
+		public Draw() {
+			setBackground(Color.GRAY);
+		}
+
+		public void paintComponent(Graphics g) {
+			Graphics2D g2 = (Graphics2D) g;
+
+			g2.setColor(Color.BLACK);
+
+			// g2.drawLine(80, 0, 80, 640);
+
+			Image board = Toolkit.getDefaultToolkit().getImage("src/images/board.png"); // Load an image from source
+																						// folder
+			g2.drawImage(board, 0, 0, x, y, this); // Draw image onto frame
+
+			Image pawn = Toolkit.getDefaultToolkit().getImage("src/images/pawn.png"); // Load an image from source
+																						// folder
+
+			g2.drawImage(pawn, 0, 0, x / COLS, y / ROWS, this); // Draw image onto frame
+
+			for (int r = 0; r <= 8; r++) {
+				g2.drawLine(0, r * y / ROWS, y, r * y / ROWS);// horizontal line
+				g2.drawLine(r * x / COLS, 0, r * x / COLS, x);// vertical line
+			}
+
+			frame.repaint();
+
+			drawPieces(g2);
+
+		}
+	}
+
+	public void drawPieces(Graphics2D g2) {// draws the pieces; have a list of image objects
+		ArrayList<Image> img = new ArrayList();
+		
+		for (int r = 0; r < 64; r++) {
+			Image p = Toolkit.getDefaultToolkit().getImage("src/images/pawn.png");
+			img.add(p);
+		}
+
+		for (Image ii : img) {
+			g2.drawImage(ii, x/COLS, y/ROWS, x/COLS, y/ROWS, this);
+		}
+		
+		frame.repaint();
+	}
+}

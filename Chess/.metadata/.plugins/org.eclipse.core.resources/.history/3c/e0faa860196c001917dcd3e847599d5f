@@ -1,0 +1,15 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class TestGUI {
+
+	
+	public static void drawFrame() {
+		JFrame fun = new JFrame();
+		
+		fun.setSize(12800, 12800);
+		fun.setTitle("MUY FUN");
+		fun.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		fun.setVisible(true);
+	}
+}

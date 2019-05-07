@@ -1,0 +1,28 @@
+import java.util.*;
+public class Arrays {
+
+	public static void main(String[] args) {
+		
+		String s = "hello";
+		int[] fun = {1, 2, 3, 4, 5};
+		ArrayList <Integer> y = new ArrayList<Integer>();
+		y.add(5);
+		changeString(s);//doesn't change
+		changeArray(fun);//changes
+		System.out.println(s);
+		for(int x: fun)
+			System.out.print(x + " ");
+		System.out.println();
+		System.out.println(y);
+
+	}
+	
+	public static void changeString(String x) {
+		x+=" world";
+	}
+	
+	public static void changeArray(int[] a) {
+		a[0] = 10000;
+	}
+
+}

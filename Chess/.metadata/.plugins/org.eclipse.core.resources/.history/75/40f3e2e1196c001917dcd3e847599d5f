@@ -1,0 +1,23 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class TestGUI {
+	JFrame fun;
+
+	public TestGUI() {
+		fun = new JFrame();
+		
+		fun.setSize(12800, 12800);
+		fun.setTitle("MUY FUN");
+		fun.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		fun.setVisible(true);
+	}
+	
+	public class Draw extends JComponent{
+		public void paintComponent (Graphics g) {
+			Graphics2D g2 = (Graphics2D)g;
+			g2.drawRect(300, 200, 50, 100);
+		}
+	}
+	
+}

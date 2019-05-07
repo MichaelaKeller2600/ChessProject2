@@ -1,0 +1,16 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class TestGUI {
+	JFrame fun;
+
+	public TestGUI() {
+		fun = new JFrame();
+		
+		fun.setSize(12800, 12800);
+		fun.setTitle("MUY FUN");
+		fun.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		fun.setVisible(true);
+	}
+	
+}

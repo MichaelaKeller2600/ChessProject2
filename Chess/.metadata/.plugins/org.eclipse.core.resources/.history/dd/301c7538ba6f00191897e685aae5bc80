@@ -1,0 +1,53 @@
+import java.awt.*;
+import javax.swing.*;
+
+public class GUI extends JFrame {
+	JFrame frame;
+	private final int ROWS = 8;
+	private final int COLS = 8;
+	private final int y;
+	private final int x;
+
+	public GUI(int LENGTH, int WIDTH) {// creates default window
+		frame = new JFrame();
+		// this.board = board;
+		this.y = LENGTH;
+		this.x = WIDTH;
+		//this.WIDTH = WIDTH;
+	
+		createStructure();
+	}
+
+	public void createStructure() {
+		frame.setTitle("Really, Fun Chess!©");
+		frame.setSize(y, x);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		Draw draw = new Draw();
+		frame.add(draw);
+		frame.setSize(1900, 1890);
+	}
+
+	public class Draw extends JComponent {// handles animation
+
+		public Draw() {
+			setBackground(Color.GRAY);
+		}
+
+		public void paintComponent (Graphics g) {
+			Graphics2D g2 = (Graphics2D)g;
+			
+			g2.setColor(Color.BLACK);
+			
+			//g2.drawLine(80, 0, 80, 640);
+			
+			for(int r = 0; r <= 8; r++) {
+				g2.drawLine(0, r*y/ROWS, y, r*y/ROWS);//horizontal line
+				g2.drawLine(r*x/COLS, 0, r*x/COLS, x);//vertical line
+			}
+			
+			
+		
+		}
+	}
+}

@@ -1,0 +1,23 @@
+import java.util.*;
+public class Arrays {
+
+	public static void main(String[] args) {
+		
+		String s = "hello";
+		int[] fun = {1, 2, 3, 4, 5};
+		changeString(s);
+		changeArray(fun);
+		System.out.println(s);
+		System.out.println(fun);
+
+	}
+	
+	public static void changeString(String x) {
+		x+=" world";
+	}
+	
+	public static void changeArray(int[] a) {
+		a[0] = 10000;
+	}
+
+}
