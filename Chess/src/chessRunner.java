@@ -49,7 +49,7 @@ public class chessRunner {
 		
 		fun.add(new Pawn(5, 4, pieceColor.black));
 		fun.add(new Pawn(4, 5, pieceColor.white));
-		fun.add(new Rook(6, 4, pieceColor.white));
+		fun.add(new Rook(8, 4, pieceColor.white));
 		
 		Board game = new Board();
 		game.basicSetup(fun);
